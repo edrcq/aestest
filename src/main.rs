@@ -9,6 +9,8 @@ fn main() {
     let mut ebuf = hex::decode(encryptedNoIV);
     match ebuf {
         Ok(mut u8arr) => {
+            println!("{:?}", u8arr);
+	        println!("Len v3 {}", u8arr.len());
             println!("{}", decrypt_packet(&mut u8arr));
         }
         Err(e) => {
@@ -20,7 +22,7 @@ fn main() {
     let mut buf3 = [0u8; 32];
     let mut buf4 = [1u8; 512];
     //println!("{}", decrypt_packet(&mut ebuf));
-    println!("{}", protosec::decrypt_packet(&mut buf2));
+    //println!("{}", protosec::decrypt_packet(&mut buf2));
     //println!("{}", protosec::decrypt_packet(&mut buf3));
     //println!("{}", protosec::decrypt_packet(&mut buf4));
 }
